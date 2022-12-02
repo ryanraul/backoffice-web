@@ -1,0 +1,28 @@
+@import "src/app/app-colors.scss";
+
+.card-container {
+
+   .header {
+      margin-top: 31px;
+      display: flex;
+      font-family: 'Montserrat';
+      font-weight: 700;
+      font-size: 16px;
+      border-top-right-radius: 20px;
+      border-top-left-radius: 20px;
+      border-bottom: 0;
+
+      .header-tab {
+         padding: 16px 32px 16px 32px;
+         background-color: $black;
+         border-radius: 20px 0px;
+         color: #FDFDFD;
+         cursor: pointer;
+      }
+
+      .header-tab-selected {
+         background-color: #F2931F;
+         color: #FDFDFD;
+      }
+   }
+}

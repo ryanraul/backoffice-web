@@ -1,0 +1,70 @@
+<div class="cadastro-container">
+
+   <form fxLayout="column" class="cliente-form" [formGroup]="formPessoa" autocomplete="off">
+
+      <div fxLayout="row" fxLayoutGap="14px">
+         <mat-form-field appearance="outline" fxFlex="70">
+            <mat-label>{{ 'Nome' }}</mat-label>
+            <input matInput type="text" formControlName="nome" />
+         </mat-form-field>
+
+         
+         <mat-form-field appearance="outline" fxFlex="30">
+            <mat-label>{{ 'Tipo de pessoa' }}</mat-label>
+            <input matInput autocomplete="off" type="text" formControlName="tipoPessoa" />
+         </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="14px">
+         <mat-form-field appearance="outline" fxFlex="70">
+            <mat-label>{{ 'Apelido' }}</mat-label>
+            <input matInput type="text" formControlName="apelido" />
+         </mat-form-field>
+
+         <mat-form-field appearance="outline" fxFlex="30">
+            <mat-label>{{ 'Numero do Documento' }}</mat-label>
+            <input matInput autocomplete="off" type="text" formControlName="numeroDocumento" />
+         </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="14px">
+         <mat-form-field appearance="outline" fxFlex="40">
+            <mat-label>{{ 'Cep' }}</mat-label>
+            <input matInput type="text" formControlName="cep" />
+         </mat-form-field>
+
+         <mat-form-field appearance="outline" fxFlex="20">
+            <mat-label>{{ 'UF' }}</mat-label>
+            <input matInput autocomplete="off" type="text" formControlName="uf" />
+         </mat-form-field>
+
+         <mat-form-field appearance="outline" fxFlex="40">
+            <mat-label>{{ 'Cidade' }}</mat-label>
+            <input matInput autocomplete="off" type="text" formControlName="cidade" />
+         </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="14px">
+         <mat-form-field appearance="outline" fxFlex="70">
+            <mat-label>{{ 'Endereço' }}</mat-label>
+            <input matInput type="text" formControlName="rua" />
+         </mat-form-field>
+
+         <mat-form-field appearance="outline">
+            <mat-label>{{ 'Bairro' }}</mat-label>
+            <input matInput autocomplete="off" type="text" formControlName="bairro" />
+         </mat-form-field>
+
+         <mat-form-field appearance="outline">
+            <mat-label>{{ 'Complemento' }}</mat-label>
+            <input matInput autocomplete="off" type="text" formControlName="complemento" />
+         </mat-form-field>
+      </div>
+
+      <div fxFlex fxLayoutAlign="end">
+         <button type="button" [disabled]="!formPessoa.valid" mat-raised-button class="button" (click)="salvarPessoa()">
+            <mat-icon>check</mat-icon> {{ 'Cadastrar' }}
+         </button>
+      </div>
+   </form>
+</div>

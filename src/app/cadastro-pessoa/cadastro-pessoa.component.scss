@@ -1,0 +1,80 @@
+@import "src/app/app-colors.scss";
+
+.cadastro-container {
+   padding: 25px;
+   background-color: #fff;
+   font-family: 'Montserrat';
+   border-radius: 0px 0px 14px 14px;
+
+   form{
+      width: 100%;
+   }
+   
+   h2 {
+      font-weight: 700;
+      font-size: 18px;
+      color: $primary;
+   }
+
+   h4 {
+      font-weight: 500;
+      font-size: 12px;
+      color: #5F6770;
+   }
+
+   mat-radio-button {
+      margin-right: 15px !important;
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 12px;
+      color: #5F6770;
+   }
+
+   mat-error {
+      margin: -19px 0 0 10px;
+      font-size: 12px;
+   }
+
+   .button {
+      cursor: pointer;
+      width: 140px;
+      height: 40px;
+      background-color: #F2931F;
+      color: #fff;
+      box-shadow: 0;
+   }
+}
+
+:host ::ng-deep .mat-radio-container{
+   height: 16px;
+   width: 16px;
+}
+
+:host ::ng-deep .mat-radio-outer-circle{
+   height: 16px;
+   width: 16px;
+}
+
+:host ::ng-deep .mat-radio-inner-circle{
+   height: 16px;
+   width: 16px;
+}
+
+:host ::ng-deep .mat-radio-label-content {
+   white-space: normal;
+}
+
+:host ::ng-deep .mat-radio-button .mat-radio-ripple{
+   height: 20px;
+   width: 20px;  
+   left: calc(50% - 16px); 
+   top: calc(50% - 16px);
+}
+
+:host ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+	background-color: #2F61EC!important;
+}
+
+:host ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+	border-color:#2F61EC!important;
+}
