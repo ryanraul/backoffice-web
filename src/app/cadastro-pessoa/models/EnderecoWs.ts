@@ -1,4 +1,4 @@
-export interface Root {
+export default interface EnderecoWs {
    cep: string
    logradouro: string
    complemento: string

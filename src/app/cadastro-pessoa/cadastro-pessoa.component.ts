@@ -27,13 +27,17 @@ export class CadastroPessoaComponent implements OnInit {
     this.pessoaId = this.route.snapshot.params.id;
     if(this.pessoaId)
       this.recuperarPessoa();
-    this.listaTipoPessoa = [...ETipoPessoaMap].map(([chave, valor]) => ({
-        chave: chave,
-        valor: valor,
-    }));
-    
+      
+    this.preenchimentoOpcoesTipoPessoa();
     this.createForm();
     
+  }
+
+  private preenchimentoOpcoesTipoPessoa() {
+    this.listaTipoPessoa = [...ETipoPessoaMap].map(([chave, valor]) => ({
+      chave: chave,
+      valor: valor,
+    }));
   }
 
   recuperarPessoa() {
@@ -109,16 +113,20 @@ export class CadastroPessoaComponent implements OnInit {
   }
 
   preencheEndereco(event){
-    console.log('oi');
-    
     if(this.formPessoa.get('cep').invalid) return;
     const cepSemFormatacao = event.target.value.replace("-","");
 
     this.service.recuperaEndereco(cepSemFormatacao).subscribe(res => {
-      console.log(res);
-    })
+      if(!res) return;
 
-    console.log('asda', event.target.value);
+      this.formPessoa.patchValue({
+        rua: res.logradouro,
+        bairro: res.bairro,
+        cidade: res.localidade,
+        uf: res.uf,
+        complemento: res.complemento,
+      })
+    })
   }
 
   get eTipoPessoa(): typeof ETipoPessoa {

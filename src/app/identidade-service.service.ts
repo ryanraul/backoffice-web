@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import PessoaCadastro from './cadastro-pessoa/models/PessoaCadastro';
+import EnderecoWs from './cadastro-pessoa/models/EnderecoWs';
 import { ApiService } from './shared/services/api.service';
 
 @Injectable({
@@ -10,7 +12,7 @@ import { ApiService } from './shared/services/api.service';
 export class IdentidadeServiceService {
   urlDominio: string;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private httpClient: HttpClient) {
     this.urlDominio = 'https://localhost:5001'
 }
 
@@ -39,13 +41,12 @@ export class IdentidadeServiceService {
             catchError(error => throwError(error)));
   }
 
-  public recuperaEndereco(cep:string): Observable<any> {
+  public recuperaEndereco(cep:string): Observable<EnderecoWs> {
     return this.apiService
-        .get(`https://viacep.com.br/ws/${cep}/json/`)
-        .pipe(
-            map((res: any) => res.data),
-            catchError((error) => throwError(error))
-        )
+      .get(`//viacep.com.br/ws/${cep}/json/`)
+      .pipe(
+        catchError((error) => throwError(error))
+      )
   }
 
   public buscarPessoa(pessoaId): Observable<any> {

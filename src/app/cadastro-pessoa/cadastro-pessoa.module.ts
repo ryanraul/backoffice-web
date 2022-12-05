@@ -8,6 +8,7 @@ import { CadastroPessoaComponent } from './cadastro-pessoa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';;
 import { NgxMaskModule } from 'ngx-mask';
 import { CadastroPessoaRoutingModule } from './cadastro-pessoa-routing.module';
 
@@ -26,6 +27,7 @@ import { CadastroPessoaRoutingModule } from './cadastro-pessoa-routing.module';
     MatSelectModule,
     NgxMaskModule.forRoot(),
     CadastroPessoaRoutingModule,
+    MatButtonToggleModule
     ],
   exports: [CadastroPessoaComponent]
 })

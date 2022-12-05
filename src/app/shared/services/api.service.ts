@@ -31,7 +31,7 @@ export class ApiService {
     }
 
     public get(url: string, loading: boolean = true): Observable<any> {
-        return this._httpClient.get(url, { headers: { 'loading': loading ? '1' : '0' } }).pipe(catchError((error) => {
+        return this._httpClient.get(url).pipe(catchError((error) => {
             this.writeLogError(error, 'GET');
             return error;
         }));

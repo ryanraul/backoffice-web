@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ItemTab } from './components/card-tabs/card-tabs.component';
 
 @Component({
@@ -7,21 +7,25 @@ import { ItemTab } from './components/card-tabs/card-tabs.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit  {
   title = 'backofficeweb';
 
   itensTab: Array<ItemTab> = [ 
     { id: 1, titulo: 'Listagem', url: 'home' }, 
     { id: 2, titulo: 'Cadastro', url: 'registro' } 
   ];
-  tabAtual = this.itensTab[0].id;
+  tabAtual= null;
 
-  constructor(private router: Router){ }
+  constructor(
+    private router: Router,
+  ){ }
+
+  ngOnInit(): void {
+  }
   
   alterarTab(tabId) {
     this.tabAtual = tabId;
     let tabSelecionada = this.itensTab.find(x => x.id == tabId).url;
-    console.log('oiiiii',tabId);
     this.router.navigateByUrl(tabSelecionada);  
   }
 }

@@ -3,7 +3,6 @@
 .cadastro-container {
    padding: 25px;
    background-color: #fff;
-   font-family: 'Montserrat';
    border-radius: 0px 0px 14px 14px;
 
    form{
@@ -95,4 +94,9 @@
 
 ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
    color: #F2931F;
+}
+
+::ng-deep .mat-button-toggle-checked{
+   background-color: #F2931F;
+   color: #fff !important;
 }

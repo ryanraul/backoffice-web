@@ -1,0 +1,8 @@
+{
+   "/ws/*": {
+      "target": "https://viacep.com.br",
+      "secure": false,
+      "loglevel": "debug"
+   }
+}
+

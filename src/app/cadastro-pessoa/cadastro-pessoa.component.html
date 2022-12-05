@@ -1,7 +1,7 @@
 <div class="cadastro-container">
 
    <form fxLayout="column" class="cliente-form" [formGroup]="formPessoa" autocomplete="off">
-
+      
       <div fxLayout="row" fxLayoutGap="14px">
          <mat-form-field appearance="outline" fxFlex="70">
             <mat-label>{{ 'Nome' }}</mat-label>
@@ -75,6 +75,14 @@
             <mat-label>{{ 'Complemento' }}</mat-label>
             <input matInput autocomplete="off" type="text" formControlName="complemento" />
          </mat-form-field>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="14px">
+         <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+            <mat-button-toggle value="red">Cliente</mat-button-toggle>
+            <mat-button-toggle value="green">Fornecedor</mat-button-toggle>
+            <mat-button-toggle value="blue">Colaborador</mat-button-toggle>
+         </mat-button-toggle-group>
       </div>
 
       <div fxFlex fxLayoutAlign="end">
