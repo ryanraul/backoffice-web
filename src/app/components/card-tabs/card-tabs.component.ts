@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export interface  ItemTab {
   id: number;
   titulo: string;
+  url: string;
 }
 
 @Component({

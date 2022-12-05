@@ -1,0 +1,50 @@
+@import "src/app/app-colors.scss";
+
+.home-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   min-height: 65vh;
+
+   align-items: center;
+   width: 100%;
+
+   .tabs {
+      display: flex;
+      width: 69%;
+   }
+   
+   .card-profile {
+      display: flex;
+      flex-direction: column;
+      padding:0;
+      min-height: 80%;
+      width: 70%;
+      background-color: $black;
+
+      mat-card-header {
+         background-color: $light-black;
+         color: $light-gray;
+         height: 40%;
+      }
+
+      .card-content{
+         display: flex;
+         flex-direction: column;
+         min-height: 400px;
+         padding: 10px;
+
+      }
+
+      .card-main-content>div:first-child {
+         grid-column: span 2;
+      }
+      
+      .card-footer {
+         display: flex;
+         margin-left: 25px;
+         margin-bottom: 15px;
+
+      }
+   }
+}

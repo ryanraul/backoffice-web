@@ -8,10 +8,12 @@
             <input matInput type="text" formControlName="nome" />
          </mat-form-field>
 
-         
          <mat-form-field appearance="outline" fxFlex="30">
             <mat-label>{{ 'Tipo de pessoa' }}</mat-label>
-            <input matInput autocomplete="off" type="text" formControlName="tipoPessoa" />
+            <mat-select formControlName="tipoPessoa">
+                <mat-option *ngFor="let tipo of listaTipoPessoa" [value]="tipo.chave" >
+                    {{ tipo.valor }}</mat-option>
+            </mat-select>
          </mat-form-field>
       </div>
 
@@ -21,16 +23,30 @@
             <input matInput type="text" formControlName="apelido" />
          </mat-form-field>
 
-         <mat-form-field appearance="outline" fxFlex="30">
-            <mat-label>{{ 'Numero do Documento' }}</mat-label>
-            <input matInput autocomplete="off" type="text" formControlName="numeroDocumento" />
+         <mat-form-field 
+            appearance="outline" fxFlex="30"
+            *ngIf="formPessoa.get('tipoPessoa')?.value == eTipoPessoa.Fisica"
+         >
+            <mat-label>CPF</mat-label>
+            <input matInput placeholder="000.000.000-00" mask="000.000.000-00" type="text"
+            formControlName="numeroDocumento" />
          </mat-form-field>
+
+         <mat-form-field 
+            appearance="outline" fxFlex="30"
+            *ngIf="formPessoa.get('tipoPessoa')?.value == eTipoPessoa.Juridica"
+         >
+            <mat-label>CNPJ</mat-label>
+            <input matInput placeholder="00.000.000/0000-00" mask="00.000.000/0000-00" type="text"
+            formControlName="numeroDocumento" />
+         </mat-form-field>
+
       </div>
 
       <div fxLayout="row" fxLayoutGap="14px">
          <mat-form-field appearance="outline" fxFlex="40">
             <mat-label>{{ 'Cep' }}</mat-label>
-            <input matInput type="text" formControlName="cep" />
+            <input matInput type="text" formControlName="cep" mask="00000-000" (focusout)="preencheEndereco($event)"/>
          </mat-form-field>
 
          <mat-form-field appearance="outline" fxFlex="20">
@@ -63,7 +79,7 @@
 
       <div fxFlex fxLayoutAlign="end">
          <button type="button" [disabled]="!formPessoa.valid" mat-raised-button class="button" (click)="salvarPessoa()">
-            <mat-icon>check</mat-icon> {{ 'Cadastrar' }}
+            <mat-icon>check</mat-icon> {{ !pessoaId ? 'Cadastrar' : 'Editar' }}
          </button>
       </div>
    </form>

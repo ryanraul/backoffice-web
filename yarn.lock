@@ -5949,6 +5949,13 @@ next-tick@^1.1.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
   integrity sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
 
+ngx-mask@10.0.4:
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/ngx-mask/-/ngx-mask-10.0.4.tgz#47592d52eefaa874582015eaf1bb6615ce09ce4f"
+  integrity sha512-CooFh9lhbDdsYBOdMNhg3yiWxiW9FbXysXeU/uJSgbVUwKv8VrUuvif5umzc4DrHco2l/rMfheOv0rxSe1IxFQ==
+  dependencies:
+    tslib "^2.0.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

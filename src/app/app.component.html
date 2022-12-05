@@ -1,2 +1,11 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<div class="home-container">
+   <div class="tabs">
+      <app-card-tabs [itensTab]="itensTab" (tabSelecionadoEvent)="alterarTab($event)"></app-card-tabs>
+   </div>
+   <mat-card class="card-profile">
+      <div class="card-content">
+         <router-outlet></router-outlet>
+      </div>
+   </mat-card>   
+</div>
