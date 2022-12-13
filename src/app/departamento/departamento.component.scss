@@ -50,7 +50,6 @@
    }
 }
 
-
 ::ng-deep.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
    color: #F2931F;
 }
@@ -61,9 +60,4 @@
 
 ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
    color: #F2931F;
-}
-
-::ng-deep .mat-button-toggle-checked{
-   background-color: #F2931F;
-   color: #fff !important;
 }

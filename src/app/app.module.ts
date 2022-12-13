@@ -12,10 +12,11 @@ import { SharedModule } from './shared/shared.module';
 import { CardTabsModule } from './components/card-tabs/card-tabs.module';
 import { CadastroPessoaModule } from './cadastro-pessoa/cadastro-pessoa.module';
 import { ListagemModule } from './listagem/listagem.module';
+import { DepartamentoModule } from './departamento/departamento.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,8 @@ import { ListagemModule } from './listagem/listagem.module';
     SharedModule,
     CardTabsModule,
     CadastroPessoaModule,
-    ListagemModule
+    ListagemModule,
+    DepartamentoModule
   ],
   providers: [
     IdentidadeServiceService, 

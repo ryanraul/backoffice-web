@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IdentidadeServiceService } from '../identidade-service.service';
+import { EQualificacao } from '../shared/enums/EQualificacao';
 import { ETipoPessoa, ETipoPessoaMap } from './models/ETipoPessoa';
 import PessoaCadastro, { Endereco } from './models/PessoaCadastro';
 
@@ -73,6 +74,7 @@ export class CadastroPessoaComponent implements OnInit {
       bairro: ['', [Validators.required]],
       complemento: ['', [Validators.required]],
       cidade: ['', [Validators.required]],
+      qualificacao: ['', [Validators.required]],
     },);
   }
 
@@ -86,13 +88,16 @@ export class CadastroPessoaComponent implements OnInit {
       cidade: this.formPessoa.get('cidade').value,
     }
 
+    console.log(`teste`, endereco);
     const pessoaCadastro: PessoaCadastro = {
       nome: this.formPessoa.get('nome').value,
       apelido: this.formPessoa.get('apelido').value,
       tipoPessoa: this.formPessoa.get('tipoPessoa').value,
       numeroDocumento: this.formPessoa.get('numeroDocumento').value,
+      qualificacao: this.formPessoa.get('qualificacao').value,
       endereco: endereco
     };
+    console.log(`teste`, pessoaCadastro);
 
     if(this.pessoaId) {
       pessoaCadastro.id = this.pessoaId;
@@ -131,5 +136,9 @@ export class CadastroPessoaComponent implements OnInit {
 
   get eTipoPessoa(): typeof ETipoPessoa {
     return ETipoPessoa;
+  }
+
+  get eQualificacao(): typeof EQualificacao {
+    return EQualificacao;
   }
 }

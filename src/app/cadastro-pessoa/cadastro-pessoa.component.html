@@ -78,10 +78,10 @@
       </div>
 
       <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="14px">
-         <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
-            <mat-button-toggle value="red">Cliente</mat-button-toggle>
-            <mat-button-toggle value="green">Fornecedor</mat-button-toggle>
-            <mat-button-toggle value="blue">Colaborador</mat-button-toggle>
+         <mat-button-toggle-group name="favoriteColor" formControlName="qualificacao" aria-label="Favorite Color">
+            <mat-button-toggle [value]="eQualificacao.Cliente">Cliente</mat-button-toggle>
+            <mat-button-toggle [value]="eQualificacao.Fornecedor">Fornecedor</mat-button-toggle>
+            <mat-button-toggle [value]="eQualificacao.Colaborador">Colaborador</mat-button-toggle>
          </mat-button-toggle-group>
       </div>
 

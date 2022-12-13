@@ -1,3 +1,4 @@
+import { EQualificacao } from 'src/app/shared/enums/EQualificacao';
 import { ETipoPessoa } from './ETipoPessoa'
 
 export default class PessoaCadastro {
@@ -6,6 +7,7 @@ export default class PessoaCadastro {
    apelido: string;
    tipoPessoa: ETipoPessoa;
    numeroDocumento: string;
+   qualificacao: EQualificacao;
    endereco: Endereco;
 }
 

@@ -5,6 +5,9 @@ import { catchError, map } from 'rxjs/operators';
 import PessoaCadastro from './cadastro-pessoa/models/PessoaCadastro';
 import EnderecoWs from './cadastro-pessoa/models/EnderecoWs';
 import { ApiService } from './shared/services/api.service';
+import { EQualificacao } from './shared/enums/EQualificacao';
+import DepartamentoCadastro from './departamento/models/DepartamentoCadastro';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +22,15 @@ export class IdentidadeServiceService {
   public recuperarPessoas(): Observable<any> {
     return this.apiService
         .get(`${this.urlDominio}/api/Pessoa/pessoas`)
+        .pipe(
+            map((res: any) => res.data),
+            catchError((error) => throwError(error))
+        )
+  }
+
+  public recuperarPessoasPorQualificacao(qualificacao: EQualificacao): Observable<any> {
+    return this.apiService
+        .get(`${this.urlDominio}/api/Pessoa/pessoas-qualificacao/${qualificacao}`)
         .pipe(
             map((res: any) => res.data),
             catchError((error) => throwError(error))
@@ -64,6 +76,14 @@ export class IdentidadeServiceService {
         map(res => res.data),
         catchError(error => throwError(error))
       );
+  }
+
+  public salvarDepartamento(dadosDepartamento: DepartamentoCadastro): Observable<any> {
+    let url = `${this.urlDominio}/api/Departamento/salvar-departamento`;
+    return this.apiService.post(url, dadosDepartamento)
+        .pipe(
+            map(res => res.data),
+            catchError(error => throwError(error)));
   }
 
 

@@ -1,0 +1,26 @@
+<div class="cadastro-container">
+
+   <form fxLayout="column" class="cliente-form" [formGroup]="formDepartamento" autocomplete="off">
+      
+      <div fxLayout="row" fxLayoutGap="14px">
+         <mat-form-field appearance="outline" fxFlex="65">
+            <mat-label>{{ 'Nome do Departamento' }}</mat-label>
+            <input matInput type="text" formControlName="nome" />
+         </mat-form-field>
+
+         <mat-form-field appearance="outline" fxFlex="35">
+            <mat-label>{{ 'Responsavel' }}</mat-label>
+            <mat-select formControlName="responsavelId">
+                <mat-option *ngFor="let pessoa of listaPessoas" [value]="pessoa.id" >
+                    {{ pessoa.nome }}</mat-option>
+            </mat-select>
+         </mat-form-field>
+      </div>
+
+      <div fxFlex fxLayoutAlign="end">
+         <button type="button" [disabled]="!formDepartamento.valid" mat-raised-button class="button" (click)="salvarDepartamento()">
+            <mat-icon>check</mat-icon> {{ 'Cadastrar' }}
+         </button>
+      </div>
+   </form>
+</div>

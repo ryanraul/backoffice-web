@@ -12,7 +12,8 @@ export class AppComponent implements OnInit  {
 
   itensTab: Array<ItemTab> = [ 
     { id: 1, titulo: 'Listagem', url: 'home' }, 
-    { id: 2, titulo: 'Cadastro', url: 'registro' } 
+    { id: 2, titulo: 'Cadastro', url: 'registro' },
+    { id: 3, titulo: 'Departamento', url: 'departamento' },
   ];
   tabAtual= null;
 

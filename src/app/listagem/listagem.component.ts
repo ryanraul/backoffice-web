@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ETipoPessoa, ETipoPessoaMap } from '../cadastro-pessoa/models/ETipoPessoa';
 
 import { IdentidadeServiceService } from '../identidade-service.service'
+import { EQualificacao, EQualificacaoMap } from '../shared/enums/EQualificacao';
 
 export interface Pessoa {
   tipoPessoa: number
@@ -21,7 +22,7 @@ export interface Pessoa {
   styleUrls: ['./listagem.component.scss']
 })
 export class ListagemComponent implements OnInit {
-  displayedColumns: string[] = [ 'nome', 'apelido', 'tipoPessoa', 'numeroDocumento', 'acoes' ];
+  displayedColumns: string[] = [ 'nome', 'apelido', 'tipoPessoa', 'numeroDocumento', 'qualificacao', 'acoes' ];
   dataSource = null;
   constructor(
     private service: IdentidadeServiceService,
@@ -51,6 +52,10 @@ export class ListagemComponent implements OnInit {
 
   recuperaDescricaoTipoPessoa(tipoPessoa: ETipoPessoa): string {
     return ETipoPessoaMap.get(tipoPessoa);
+  }
+
+  recuperaDescricaoQualificacao(qualificacao: EQualificacao): string {
+    return EQualificacaoMap.get(qualificacao);
   }
 
 }
